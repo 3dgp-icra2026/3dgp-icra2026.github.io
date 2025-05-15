@@ -173,7 +173,7 @@
   </div>
 </section>
 
-<!-- <section class="hero teaser">
+<section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
       <video id="teaser" autoplay muted loop playsinline height="100%">
@@ -187,7 +187,7 @@
       </h2>
     </div>
   </div>
-</section> -->
+</section>
 <!-- 
 
 <section class="hero is-light is-small">
@@ -289,45 +289,45 @@
 <section class="section">
   <div class="container is-max-desktop">
 
+    <!-- Central Title -->
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <h2 class="title is-3">Model Architecture</h2>
+      </div>
+    </div>
+
+    <!-- Side-by-side columns -->
     <div class="columns is-centered">
 
-      <!-- Visual Effects. -->
-      <!-- <div class="column">
+      <!-- Global Placement Initialization -->
+      <div class="column is-half">
         <div class="content">
-          <h2 class="title is-3">Visual Effects</h2>
+          <h3 class="title is-4">Global Placement Initialization</h3>
           <p>
-            Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
-            would be impossible without nerfies since it would require going through a wall.
+            Our model initializes a rough global position using a dense GMM-based prediction,
+            capable of capturing multimodal possibilities across the scene.
           </p>
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/dollyzoom-stacked.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div> -->
-      <!--/ Visual Effects. -->
-
-      <!-- Matting. -->
-      <!-- <div class="column">
-        <h2 class="title is-3">Matting</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring
-              samples that fall outside of a bounding box during rendering.
-            </p>
-            <video id="matting-video" controls playsinline height="100%">
-              <source src="./static/videos/matting.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-
+          <img src="./static/images/tax3dv2_method_gpi.png" alt="Global Placement Initialization" width="100%">
         </div>
       </div>
-    </div> -->
-    <!--/ Matting. -->
+
+      <!-- Local Configuration Refinement -->
+      <div class="column is-half">
+        <div class="content">
+          <h3 class="title is-4">Local Configuration Refinement</h3>
+          <p>
+            Fine-level adjustment of the object configuration is achieved via local diffusion,
+            enabling precise and non-rigid alignment within the global prediction.
+          </p>
+          <img src="./static/images/tax3dv2_method_lpr.png" alt="Local Configuration Refinement" width="100%">
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
+
+
 
 
 <!-- <section class="section" id="BibTeX">
