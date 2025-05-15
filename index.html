@@ -181,9 +181,10 @@
                 type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
-        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
-        free-viewpoint
-        portraits.
+        Our method demonstrated strong real-world performance by successfully performing connector insertion tasks 
+        on the NIST Assembly Task Board — a task suits that demands millimeter-scale precision for reliable operation. 
+        We achieved high success rates across various connectors, consistently outperforming our baseline method, 
+        which was originally designed for unimodal, rigid relative placement tasks.
       </h2>
     </div>
   </div>
@@ -304,8 +305,8 @@
         <div class="content">
           <h3 class="title is-4">Global Placement Initialization</h3>
           <p>
-            Our model initializes a rough global position using a dense GMM-based prediction,
-            capable of capturing multimodal possibilities across the scene.
+            Our model initializes a rough global position using a novel dense GMM-based prediction module,
+            a framework that models highly multi-modal placement distributions at the scene-level.
           </p>
           <img src="./static/images/tax3dv2_method_gpi.png" alt="Global Placement Initialization" width="100%">
         </div>
@@ -316,8 +317,9 @@
         <div class="content">
           <h3 class="title is-4">Local Configuration Refinement</h3>
           <p>
-            Fine-level adjustment of the object configuration is achieved via local diffusion,
-            enabling precise and non-rigid alignment within the global prediction.
+            Our model then proceeds with local configuration refinement, in which we introduce a disengantled shape
+            diffusion and reference frame diffusion module along with several novel design choices that simultaneously allow 
+            precise and dense (i.e. non-rigid) transformations.
           </p>
           <img src="./static/images/tax3dv2_method_lpr.png" alt="Local Configuration Refinement" width="100%">
         </div>
