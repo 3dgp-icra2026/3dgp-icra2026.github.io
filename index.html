@@ -287,15 +287,63 @@
   </div>
 </section>
 
+ <!-- Framework Overview. -->
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Central Title -->
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <h2 class="title is-3">Model Architecture</h2>
+      </div>
+    </div>
+
+    <!-- Side-by-side columns -->
+    <div class="columns is-centered">
+
+      <!-- Global Placement Initialization -->
+      <div class="column is-half">
+        <div class="content">
+          <h3 class="title is-4">Global Placement Initialization</h3>
+          <p>
+            Our model initializes a rough global position using a novel dense GMM-based prediction module,
+            a framework that models highly multi-modal placement distributions at the scene-level.
+          </p>
+          <img src="./static/images/tax3dv2_method_gpi.png" alt="Global Placement Initialization" width="100%">
+        </div>
+      </div>
+
+      <!-- Local Configuration Refinement -->
+      <div class="column is-half">
+        <div class="content">
+          <h3 class="title is-4">Local Configuration Refinement</h3>
+          <p>
+            Our model then proceeds with local configuration refinement, in which we introduce a disengantled shape
+            diffusion and reference frame diffusion that simultaneously allow 
+            precise and dense (i.e. non-rigid) goal predictions.
+          </p>
+          <img src="./static/images/tax3dv2_method_lpr.png" alt="Local Configuration Refinement" width="100%">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
  <!-- Real World Results. -->
  <section class="section">
   <div class="container is-max-desktop">
 
     <!-- Real World Results - NIST Board Insertion Tasks. -->
     <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Real World Results - NIST Board Insertion Tasks</h2>
+      <div class="column has-text-centered">
+        <h2 class="title is-3"> Real World Results - NIST Board Insertion Tasks</h2>
+      </div>
+    </div>
 
+    <div class="columns is-centered">
+      <div class="column is-full-width">
         <!-- In-Hand Insertion. -->
         <h3 class="title is-4">In-Hand Insertion</h3>
         <div class="content has-text-justified">
@@ -345,55 +393,82 @@
           </video>
         </div>
         <br/>
-        <!--/ Interpolating. -->
 
-  </div>
-</section>
+        <!--Qualitative Comparisons. -->
+        <h3 class="title is-4">Qualitative Comparisons</h3>
+        <div class="content has-text-justified">
+          <p>
+            TBA.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 width="75%">
+            <source src="./static/videos/replay.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
 
+        <!--Quantitative Comparisons. -->
+        <h3 class="title is-4">Quantitative Comparisons</h3>
+        <div class="table-container">
+          <table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; text-align: center;">
+            <thead>
+              <tr>
+                <th rowspan="2"></th>
+                <th colspan="2">Waterproof</th>
+                <th colspan="2">DSUB-25</th>
+                <th colspan="2">SSD</th>
+              </tr>
+              <tr>
+                <th>TAX-Pose</th>
+                <th><b>Ours</b></th>
+                <th>TAX-Pose</th>
+                <th><b>Ours</b></th>
+                <th>TAX-Pose</th>
+                <th><b>Ours</b></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b>Success Rate</b></td>
+                <td>80% (16/20)</td>
+                <td><b>100% (20/20)</b></td>
+                <td>80% (16/20)</td>
+                <td><b>80% (16/20)</b></td>
+                <td>0% (0/20)</td>
+                <td><b>85% (17/20)</b></td>
+              </tr>
+              <tr>
+                <td><b>Trans. Err. (mm)</b></td>
+                <td>1.04</td>
+                <td><b>0.72</b></td>
+                <td>0.93</td>
+                <td><b>1.00</b></td>
+                <td>16.18</td>
+                <td><b>2.75</b></td>
+              </tr>
+              <tr>
+                <td><b>Rot. Err. (°)</b></td>
+                <td>1.64</td>
+                <td><b>1.18</b></td>
+                <td>3.16</td>
+                <td><b>1.36</b></td>
+                <td>13.81</td>
+                <td><b>2.77</b></td>
+              </tr>
+            </tbody>
+          </table>          
+        </div>
 
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <!-- Central Title -->
-    <div class="columns is-centered">
-      <div class="column has-text-centered">
-        <h2 class="title is-3">Model Architecture</h2>
       </div>
     </div>
-
-    <!-- Side-by-side columns -->
-    <div class="columns is-centered">
-
-      <!-- Global Placement Initialization -->
-      <div class="column is-half">
-        <div class="content">
-          <h3 class="title is-4">Global Placement Initialization</h3>
-          <p>
-            Our model initializes a rough global position using a novel dense GMM-based prediction module,
-            a framework that models highly multi-modal placement distributions at the scene-level.
-          </p>
-          <img src="./static/images/tax3dv2_method_gpi.png" alt="Global Placement Initialization" width="100%">
-        </div>
-      </div>
-
-      <!-- Local Configuration Refinement -->
-      <div class="column is-half">
-        <div class="content">
-          <h3 class="title is-4">Local Configuration Refinement</h3>
-          <p>
-            Our model then proceeds with local configuration refinement, in which we introduce a disengantled shape
-            diffusion and reference frame diffusion that simultaneously allow 
-            precise and dense (i.e. non-rigid) goal predictions.
-          </p>
-          <img src="./static/images/tax3dv2_method_lpr.png" alt="Local Configuration Refinement" width="100%">
-        </div>
-      </div>
-
-    </div>
   </div>
 </section>
-
-
 
 
 <!-- <section class="section" id="BibTeX">
