@@ -345,12 +345,12 @@
     <div class="columns is-centered">
       <div class="column is-full-width">
         <!-- In-Hand Insertion. -->
-        <h3 class="title is-4">Insertion After a Human Handoff</h3>
+        <h3 class="title is-4">Insertion After Human Handoffs</h3>
         <div class="content has-text-justified">
           <p>
             We show that our method enables reliable human-robot collaborative manipulation by performing 
-            connector insertions after a human handof. Specifically, a human hands a connector with arbitrary pose directly to a 
-            robot arm, which then autonomously performs precise insertion into a designated socket on the 
+            connector insertions after human handoffs. Specifically, a human hands a connector (Waterproof, DSUB-25, or SSD) 
+            with arbitrary pose directly to a robot arm, which then autonomously performs precise insertion into a designated socket on the 
             NIST Assembly Task Board, based on the goal configurations predicted by our method. This demonstrates that our goal prediction framework exhibits 
             strong <strong>generalization to unseen object configurations</strong> with random occlusions due to varying view points, 
             while maintaining <strong>millimeter-scale precision</strong> required for successful real-world insertions.
@@ -395,27 +395,39 @@
         <br/>
 
         <!--Qualitative Comparisons. -->
+        <!-- In-Hand Insertion. -->
+        <h3 class="title is-4">Insertion from Randomizerd Initial Poses</h3>
+        <div class="content has-text-justified">
+          <p>
+            We further evaluate our method both qualitatively and quantitatively across all three connectors
+            (Waterproof, DSUB-25, and SSD), each tested over 20 insertion trials with autonomously sampled 
+            random rotations and translations (see Appendix for details). We train and compare against TAX-POSE, 
+            a strong baseline designed for unimodal, rigid relative placement tasks. While our framework is 
+            designed to handle both rigid and non-rigid objects and supports multi-modal placement goals, 
+            this experiment demonstrates that it also performs strongly in rigid, unimodal goal prediction settings. 
+            (We will further explore multi-modal placement and non-rigid goal prediction in our simulation experiments)
+          </p>
+        </div>
+
         <div class="columns is-centered">
 
-          <!-- Visual Effects. -->
+          <!-- Our Method. -->
           <div class="column">
             <div class="content">
-              <h2 class="title is-3">Visual Effects</h2>
-              <p>
-                Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
-                would be impossible without nerfies since it would require going through a wall.
-              </p>
+              <h3 class="title is-4">Our Method</h3>
+              <h4 class="title is-5">Waterproof</h4>
+
               <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
                 <source src="./static/videos/dollyzoom-stacked.mp4"
                         type="video/mp4">
               </video>
             </div>
           </div>
-          <!--/ Visual Effects. -->
+          <!--/ Our Method. -->
     
-          <!-- Matting. -->
+          <!-- TAXPOSE. -->
           <div class="column">
-            <h2 class="title is-3">Matting</h2>
+            <h3 class="title is-4">TAX-POSE</h3>
             <div class="columns is-centered">
               <div class="column content">
                 <p>
@@ -431,7 +443,7 @@
             </div>
           </div>
         </div>
-        <!--/ Matting. -->
+        <!--/ TAXPOSE. -->
 
         <!--Quantitative Comparisons. -->
         <h3 class="title is-4">Quantitative Comparisons</h3>
