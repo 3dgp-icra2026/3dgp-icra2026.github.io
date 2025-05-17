@@ -394,56 +394,52 @@
         </div>
         <br/>
 
-        <!--Qualitative Comparisons. -->
-        <!-- In-Hand Insertion. -->
-        <h3 class="title is-4">Insertion from Randomizerd Initial Poses</h3>
+        <!-- Qualitative Comparisons -->
+        <h3 class="title is-4">Insertion from Randomized Initial Poses</h3>
         <div class="content has-text-justified">
           <p>
             We further evaluate our method both qualitatively and quantitatively across all three connectors
             (Waterproof, DSUB-25, and SSD), each tested over 20 insertion trials with autonomously sampled 
-            random rotations and translations (see Appendix for details). We train and compare against TAX-POSE, 
+            random rotations and translations (see Appendix for details). We train and compare against TAX-Pose, 
             a strong baseline designed for unimodal, rigid relative placement tasks. While our framework is 
             designed to handle both rigid and non-rigid objects and supports multi-modal placement goals, 
-            this experiment demonstrates that it also performs strongly in rigid, unimodal goal prediction settings. 
-            (We will further explore multi-modal placement and non-rigid goal prediction in our simulation experiments)
+            our real-world experiment demonstrates that it also excels in rigid, unimodal goal prediction settings. 
+            We will further explore multi-modal placement and non-rigid goal prediction in our simulation experiments.
           </p>
         </div>
 
+        <!-- Heading row that spans both columns -->
+        <div class="columns is-centered">
+          <div class="column is-half has-text-centered">
+            <h4 class="title is-4">Waterproof</h4>
+          </div>
+        </div>
+
+        <!-- Method comparison row -->
         <div class="columns is-centered">
 
-          <!-- Our Method. -->
+          <!-- Our Method -->
           <div class="column">
             <div class="content">
-              <h3 class="title is-4">Our Method</h3>
-              <h4 class="title is-5">Waterproof</h4>
-
-              <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-                <source src="./static/videos/dollyzoom-stacked.mp4"
-                        type="video/mp4">
+              <h4 class="title is-5">Our Method</h4>
+              <video autoplay controls muted loop playsinline width="100%">
+                <source src="./static/videos/dollyzoom-stacked.mp4" type="video/mp4">
               </video>
             </div>
           </div>
-          <!--/ Our Method. -->
-    
-          <!-- TAXPOSE. -->
+
+          <!-- TAX-Pose -->
           <div class="column">
-            <h3 class="title is-4">TAX-POSE</h3>
-            <div class="columns is-centered">
-              <div class="column content">
-                <p>
-                  As a byproduct of our method, we can also solve the matting problem by ignoring
-                  samples that fall outside of a bounding box during rendering.
-                </p>
-                <video id="matting-video" controls playsinline height="100%">
-                  <source src="./static/videos/matting.mp4"
-                          type="video/mp4">
-                </video>
-              </div>
-    
+            <div class="content">
+              <h4 class="title is-5">TAX-Pose</h4>
+              <video autoplay controls muted loop playsinline width="100%">
+                <source src="./static/videos/matting.mp4" type="video/mp4">
+              </video>
             </div>
           </div>
+
         </div>
-        <!--/ TAXPOSE. -->
+
 
         <!--Quantitative Comparisons. -->
         <h3 class="title is-4">Quantitative Comparisons</h3>
