@@ -398,12 +398,14 @@
         <h3 class="title is-4">Insertion from Randomized Initial Poses</h3>
         <div class="content has-text-justified">
           <p>
-            We further evaluate our method both qualitatively and quantitatively across all three connectors
-            (Waterproof, DSUB-25, and SSD), each tested over 20 insertion trials with autonomously sampled 
-            random rotations and translations (see Appendix for details). We train and compare against TAX-Pose, 
-            a strong baseline designed for unimodal, rigid relative placement tasks. While our framework is 
-            designed to handle both rigid and non-rigid objects and supports multi-modal placement goals, 
-            our real-world experiment demonstrates that it also excels in rigid, unimodal goal prediction settings. 
+            We evaluate our method both qualitatively and quantitatively across three connectors (Waterproof, DSUB-25, 
+            and SSD), each with 20 insertion trials involving randomly sampled rotations and translations (see Appendix for details). 
+            To enable quantitative evaluation, the robot autonomously grasps the plug at a random angle between -10° and 10°, 
+            removes it from the socket, and moves to a default pose, discarding the grasp orientation. A point cloud of the plug 
+            and socket is then captured, and our and the baseline method predicts the appropriate insertion configuration without access to the original 
+            ground truth. This contrasts with the previous human-handoff setting, where the initial pose is unknown and quantitative 
+            error computation is not feasible. While our framework is designed to handle both rigid and non-rigid objects and supports 
+            multi-modal placement goals, our real-world experiment demonstrates that it also excels in rigid, unimodal goal prediction settings. 
             We will further explore multi-modal placement and non-rigid goal prediction in our simulation experiments.
           </p>
         </div>
