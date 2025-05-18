@@ -398,9 +398,10 @@
         <h3 class="title is-4">Insertion from Randomized Initial Poses</h3>
         <div class="content has-text-justified">
           <p>
-            We evaluate our method both qualitatively and quantitatively across three connectors (Waterproof, DSUB-25, 
+            We further evaluate our method both qualitatively and quantitatively across three connectors (Waterproof, DSUB-25, 
             and SSD), each with 20 insertion trials involving randomly sampled rotations and translations (see Appendix for details). 
-            To enable quantitative evaluation, the robot autonomously grasps the plug at a random angle between -10° and 10°, 
+            To enable quantitative evaluation, the robot autonomously grasps the plug at a random angle variation between -10° and 10° and 
+            random translation variation between -5mm and 5mm across feasible axises, 
             removes it from the socket, and moves to a default pose, discarding the grasp orientation. A point cloud of the plug 
             and socket is then captured, and our and the baseline method predicts the appropriate insertion configuration without access to the original 
             ground truth. This contrasts with the previous human-handoff setting, where the initial pose is unknown and quantitative 
