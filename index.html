@@ -401,15 +401,17 @@
             We further evaluate our method both qualitatively and quantitatively across three connectors (Waterproof, DSUB-25, 
             and SSD), each with 20 insertion trials involving randomly sampled rotations and translations (see Appendix for details). 
             To enable quantitative evaluation, the robot autonomously grasps the plug at a random angle variation between -10° and 10° and 
-            random translation variation between -5mm and 5mm across feasible axises, 
+            random translation variation between -5mm and 5mm across feasible axes, 
             removes it from the socket, and moves to a default pose, discarding the grasp orientation. A point cloud of the plug 
             and socket is then captured, and our and the baseline method predicts the appropriate insertion configuration without access to the original 
             ground truth. This contrasts with the previous human-handoff setting, where the initial pose is unknown and quantitative 
             error computation is not feasible. While our framework is designed to handle both rigid and non-rigid objects and supports 
             multi-modal placement goals, our real-world experiment demonstrates that it also excels in rigid, unimodal goal prediction settings. 
-            We will further explore multi-modal placement and non-rigid goal prediction in our simulation experiments.
+            We further explore multi-modal placement and non-rigid goal prediction in our simulation experiments.
           </p>
         </div>
+
+        <h4 class="title is-4" style="font-weight: normal;">Qualitative Results</h4>
 
         <div class="columns is-centered has-text-centered">
           <div class="column">
@@ -423,7 +425,7 @@
         <!-- Connector name (Waterproof) -->
         <div class="columns is-centered">
           <div class="column">
-            <h4 class="title is-4">Waterproof</h4>
+            <h4 class="title is-4" style="font-weight: normal;">Waterproof</h4>
           </div>
         </div>
         
@@ -464,7 +466,7 @@
         <!-- Connector name (DSUB) -->
         <div class="columns is-centered">
           <div class="column">
-            <h4 class="title is-4">DSUB-25</h4>
+            <h4 class="title is-4" style="font-weight: normal;">DSUB-25</h4>
           </div>
         </div>
         
@@ -505,7 +507,7 @@
         <!-- Connector name (SSD) -->
         <div class="columns is-centered">
           <div class="column">
-            <h4 class="title is-4">SSD</h4>
+            <h4 class="title is-4" style="font-weight: normal;">SSD</h4>
           </div>
         </div>
         
@@ -544,16 +546,7 @@
         </div>
 
         <!--Quantitative Comparisons. -->
-        <h4 class="title is-4">Table Results</h4>
-        <div class="content has-text-justified">
-          <p>
-            The numbers in the red parentheses 
-            <span style="color: red;">()</span> 
-            indicate the average error differential between failures and successes, 
-            and the dashes “-” indicate results where no corresponding successes or failures were recorded.
-          </p>
-        </div>
-
+        <h4 class="title is-4" style="font-weight: normal;">Quantitative Results</h4>
         <div style="display: flex; justify-content: center; margin-top: 2em;">
           <table border="1" cellspacing="0" cellpadding="10" style="border-collapse: collapse; text-align: center; font-size: 1.2em; width: 100%;">
             <thead>
@@ -603,72 +596,6 @@
             </tbody>
           </table>
         </div>
-
-        <div style="display: flex; justify-content: center; margin-top: 2em;">
-          <table border="1" cellspacing="0" cellpadding="10" style="border-collapse: collapse; text-align: center; font-size: 1.2em; width: 100%;">
-            <thead>
-              <tr>
-                <th rowspan="2"></th>
-                <th rowspan="2"></th>
-                <th colspan="2">Waterproof</th>
-                <th colspan="2">DSUB-25</th>
-                <th colspan="2">SSD</th>
-              </tr>
-              <tr>
-                <th>TAX-POSE</th>
-                <th><b>Ours</b></th>
-                <th>TAX-POSE</th>
-                <th><b>Ours</b></th>
-                <th>TAX-POSE</th>
-                <th><b>Ours</b></th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Success rows -->
-              <tr>
-                <td rowspan="2"><b>Success</b></td>
-                <td><b>Trans. Err. (mm)</b></td>
-                <td>0.99</td>
-                <td><b>0.72</b></td>
-                <td>0.75</td>
-                <td><b>0.53</b></td>
-                <td>-</td>
-                <td><b>1.72</b></td>
-              </tr>
-              <tr>
-                <td><b>Rot. Err. (°)</b></td>
-                <td>1.54</td>
-                <td><b>1.18</b></td>
-                <td>2.90</td>
-                <td><b>1.17</b></td>
-                <td>-</td>
-                <td><b>2.01</b></td>
-              </tr>
-        
-              <!-- Failure rows -->
-              <tr>
-                <td rowspan="2"><b>Failure</b></td>
-                <td><b>Trans. Err. (mm)</b></td>
-                <td>1.35 <span style="color: red;">(+0.36)</span></td>
-                <td>- <span style="color: red;">(-)</span></td>
-                <td><b>1.65</b> <span style="color: red;">(+0.90)</span></td>
-                <td>1.96 <span style="color: red;">(+1.43)</span></td>
-                <td>16.18 <span style="color: red;">(-)</span></td>
-                <td><b>6.94</b> <span style="color: red;">(+5.22)</span></td>
-              </tr>
-              <tr>
-                <td><b>Rot. Err. (°)</b></td>
-                <td>2.26 <span style="color: red;">(+0.72)</span></td>
-                <td>- <span style="color: red;">(-)</span></td>
-                <td>4.20 <span style="color: red;">(+1.30)</span></td>
-                <td><b>1.73</b> <span style="color: red;">(+0.56)</span></td>
-                <td>13.81 <span style="color: red;">(-)</span></td>
-                <td><b>8.75</b> <span style="color: red;">(+6.74)</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        
         
       </div>
     </div>
