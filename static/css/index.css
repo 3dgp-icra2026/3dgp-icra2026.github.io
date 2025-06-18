@@ -21,9 +21,6 @@ body {
 .teaser .hero-body {
   padding-top: 0;
   padding-bottom: 3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .teaser {
@@ -157,17 +154,4 @@ body {
 }
 #interpolation-image-wrapper img {
   border-radius: 5px;
-}
-
-.teaser .svg-container {
-  width: 100%;
-  max-width: 800px;
-  height: auto;
-}
-
-.teaser .svg-object {
-  width: 100%;
-  height: auto;
-  max-height: 60vh;
-  display: block;
 }
