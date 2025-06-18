@@ -21,6 +21,9 @@ body {
 .teaser .hero-body {
   padding-top: 0;
   padding-bottom: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .teaser {
@@ -156,20 +159,13 @@ body {
   border-radius: 5px;
 }
 
-.hero-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-}
-
-.svg-container {
+.teaser .svg-container {
   width: 100%;
   max-width: 800px;
   height: auto;
 }
 
-.svg-object {
+.teaser .svg-object {
   width: 100%;
   height: auto;
   max-height: 60vh;
