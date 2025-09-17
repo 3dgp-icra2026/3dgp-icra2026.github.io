@@ -307,45 +307,18 @@
   </div>
 </section>
 
- <!-- Framework Overview. -->
+<!-- Framework Overview. -->
 <section class="section">
   <div class="container is-max-desktop">
-
-    <!-- Central Title -->
     <div class="columns is-centered">
-      <div class="column has-text-centered">
+      <div class="column is-full-width has-text-centered">
         <h2 class="title is-3">Model Architecture</h2>
+        <img src="./static/images/tax3dv2_method_full.png" style="width: 100%; max-width: 1080px;">
+        <p class="mt-4 has-text-justified">
+          <strong>Left:</strong> Our <em>Global Placement Initialization</em> samples a rough global position using a novel dense GMM-based prediction module, a framework that models highly multi-modal placement distributions at the scene-level. 
+          <strong>Right:</strong> Our <em>Local Configuration Refinement</em> then proceeds with a novel disentangled shape and reference frame diffusion that simultaneously allow precise and dense goal predictions.
+        </p>
       </div>
-    </div>
-
-    <!-- Side-by-side columns -->
-    <div class="columns is-centered">
-
-      <!-- Global Placement Initialization -->
-      <div class="column is-half">
-        <div class="content">
-          <h3 class="title is-4">Global Placement Initialization</h3>
-          <p>
-            Our model initializes a rough global position using a novel dense GMM-based prediction module,
-            a framework that models highly multi-modal placement distributions at the scene-level.
-          </p>
-          <img src="./static/images/tax3dv2_method_gpi.png" alt="Global Placement Initialization" width="100%">
-        </div>
-      </div>
-
-      <!-- Local Configuration Refinement -->
-      <div class="column is-half">
-        <div class="content">
-          <h3 class="title is-4">Local Configuration Refinement</h3>
-          <p>
-            Our model then proceeds with local configuration refinement, in which we introduce a disengantled shape
-            diffusion and reference frame diffusion that simultaneously allow 
-            precise and dense (i.e. non-rigid) goal predictions.
-          </p>
-          <img src="./static/images/tax3dv2_method_lpr.png" alt="Local Configuration Refinement" width="100%">
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
