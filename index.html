@@ -198,7 +198,7 @@
                 type="video/mp4">
       </video>
       <p>
-        Our hierarchical goal-prediction framework, which proposes a novel scene-grounded <b>dense GMM</b> for global placement 
+        Our hierarchical goal-prediction framework, which proposes a novel scene-grounded <b>dense Gaussian mixture model</b> for global placement 
         initialization and a <b>disentangled point diffusion</b> process that separately denoises local object geometry and the 
         placement frame to refine local placement configuration, demonstrated strong real-world performance by successfully 
         performing connector insertion tasks on the NIST Assembly Task Board — a task suite that demands millimeter-scale 
@@ -295,15 +295,15 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Recent advances in robotic manipulation have highlighted the effectiveness of learning from demonstration. 
-            However, while end-to-end policies excel in expressivity and flexibility, they struggle with generalization. 
-            An alternative approach of object-centric prediction offers improved generalizability but often relies on restrictive assumptions 
-            regarding object rigidity and unimodal scene placements. In this work, we introduce a hierarchical goal-prediction framework for 
-            object placement that overcomes these limitations. Specifically, we model global scene-level placements through a novel 
-            Dense Gaussian Mixture Model (GMM); we model local object-level configuration through a disentangled reference diffusion and shape diffusion. 
-            By decoupling placement prediction into these two stages, our method generalizes effectively to scene multi-modality while supporting 
-            high-precision and non-rigid placements. We validate our approach across a suite of challenging tasks, demonstrating strong performance in 
-            both rigid and non-rigid settings in simulation and in the real world.
+            Recent advances in robotic manipulation have highlighted the effectiveness of learning from demonstration. However, while end-to-end policies excel in expressivity and flexibility, 
+            they struggle both in generalizing to novel object geometries and in attaining a high degree of precision. An alternative, object-centric approach frames the task as predicting the 
+            placement pose of the target object, providing a modular decomposition of the problem. Building on this goal-prediction paradigm, we propose a hierarchical, disentangled point diffusion 
+            framework that achieves state-of-the-art performance in placement precision, multi-modal coverage, and generalization to variations in object geometries and scene configurations. 
+            Specifically, we model global scene-level placements through a novel feed-forward Dense Gaussian Mixture Model (GMM) that yields a spatially dense prior over global placements; we then 
+            model the local object-level configuration through a novel disentangled point cloud diffusion module that separately diffuses the object geometry and the placement frame, enabling precise 
+            local geometric reasoning.  Interestingly, we demonstrate that our point cloud diffusion achieves substantially higher accuracy compared to prior approaches based on SE(3) diffusion, even 
+            in the context of rigid object placement. We validate our approach across a suite of challenging tasks in simulation and in the real-world on high-precision industrial insertion tasks. 
+            Furthermore, we present results on a cloth-hanging task in simulation, indicating that our method can further relax assumptions on object rigidity.
           </p>
         </div>
       </div>
@@ -366,6 +366,8 @@
             while maintaining <strong>millimeter-scale precision</strong> required for successful real-world insertions.
           </p>
         </div>
+
+        <h4 class="title is-4" style="font-weight: normal;">Qualitative Results - Unimodal</h4>
         <!-- WP In-Hand Video. -->
         <div class="content has-text-centered">
           <video id="replay-video"
@@ -404,6 +406,20 @@
         </div>
         <br/>
 
+        <h4 class="title is-4" style="font-weight: normal;">Qualitative Results - Multi-modal</h4>
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 width="100%">
+            <source src="./static/videos/handinsert_Wp_multimoda.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <br/>
+
         <!-- Qualitative Comparisons -->
         <h3 class="title is-4">Insertion from Randomized Initial Poses</h3>
         <div class="content has-text-justified">
@@ -414,14 +430,12 @@
             random translation variation between -5mm and 5mm across feasible axes, 
             removes it from the socket, and moves to a default pose, discarding the grasp orientation. A point cloud of the plug 
             and socket is then captured, and our and the baseline method predicts the appropriate insertion configuration without access to the original 
-            ground truth. This contrasts with the previous human-handoff setting, where the initial pose is unknown and quantitative 
-            error computation is not feasible. While our framework is designed to handle both rigid and non-rigid objects and supports 
-            multi-modal placement goals, our real-world experiment demonstrates that it also excels in rigid, unimodal goal prediction settings. 
-            We further explore multi-modal placement and non-rigid goal prediction in our simulation experiments.
+            ground truth. As indicated by the results below, our real-world experiment demonstrates that our method excels in both unimodal and multi-modal insertions,
+            while maintaining high precision required to reliably accomplish industrial tasks. 
           </p>
         </div>
 
-        <h4 class="title is-4" style="font-weight: normal;">Qualitative Results</h4>
+        <h4 class="title is-4" style="font-weight: normal;">Qualitative Results - Unimodal</h4>
 
         <div class="columns is-centered has-text-centered">
           <div class="column">
@@ -518,24 +532,51 @@
                 <video autoplay controls muted loop playsinline width="100%">
                   <source src="./static/videos/tax3dv2_ssd_sample1.mp4" type="video/mp4">
                 </video>
-                <br>
-                <video autoplay controls muted loop playsinline width="100%">
-                  <source src="./static/videos/tax3dv2_ssd_sample2.mp4" type="video/mp4">
-                </video>
               </div>
               <!-- TAX-Pose -->
               <div class="column">
                 <video autoplay controls muted loop playsinline width="100%">
                   <source src="./static/videos/taxpose_ssd_sample1.mp4" type="video/mp4">
                 </video>
-                <br>
-                <video autoplay controls muted loop playsinline width="100%">
-                  <source src="./static/videos/taxpose_ssd_sample2.mp4" type="video/mp4">
-                </video>
               </div>
             </div>
           </div>
         </div>   
+
+        <h4 class="title is-4" style="font-weight: normal;">Qualitative Results - Multi-modal</h4>
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <h4 class="title is-5">Our Method</h4>
+          </div>
+        </div>
+        
+        <div class="columns is-vcentered">
+          <!-- Vertical Connector Name -->
+          <div class="column is-narrow has-text-centered">
+            <div style="writing-mode: vertical-rl; transform: rotate(180deg); font-size: 1.2rem; font-weight: bold;">
+              Waterproof
+            </div>
+          </div>
+        
+          <!-- Video Block (2 rows in 1 column per side) -->
+          <div class="column">
+            <div class="columns">
+              <!-- Our Method -->
+              <div class="column">
+                <video autoplay controls muted loop playsinline width="100%">
+                  <source src="./static/videos/tax3dv2_wp_multimodal_sample1.mp4" type="video/mp4">
+                </video>
+              </div>
+              <!-- TAX-Pose -->
+              <div class="column">
+                <video autoplay controls muted loop playsinline width="100%">
+                  <source src="./static/videos/tax3dv2_wp_multimodal_sample2.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>     
 
         <!--Quantitative Comparisons. -->
         <h4 class="title is-4" style="font-weight: normal;">Quantitative Results</h4>
@@ -543,17 +584,23 @@
           <table border="1" cellspacing="0" cellpadding="10" style="border-collapse: collapse; text-align: center; font-size: 1.2em; width: 100%;">
             <thead>
               <tr>
-                <th rowspan="2"></th>
+                <th rowspan="3"></th>
+                <th colspan="6">Unimodal</th>
+                <th colspan="2">Multimodal</th>
+              </tr>
+              <tr>
                 <th colspan="2">Waterproof</th>
                 <th colspan="2">DSUB-25</th>
                 <th colspan="2">SSD</th>
+                <th colspan="2">Waterproof</th>
               </tr>
               <tr>
-                <th>TAX-POSE</th>
+                <th>TAX-Pose</th>
                 <th><b>Ours</b></th>
-                <th>TAX-POSE</th>
+                <th>TAX-Pose</th>
                 <th><b>Ours</b></th>
-                <th>TAX-POSE</th>
+                <th>TAX-Pose</th>
+                <th><b>Ours</b></th>
                 <th><b>Ours</b></th>
               </tr>
             </thead>
@@ -566,6 +613,7 @@
                 <td><b>80% (16/20)</b></td>
                 <td>0% (0/20)</td>
                 <td><b>85% (17/20)</b></td>
+                <td><b>90%</b></td>
               </tr>
               <tr>
                 <td><b>Trans. Err. (mm)</b></td>
@@ -575,6 +623,7 @@
                 <td>1.00</td>
                 <td>16.18</td>
                 <td><b>2.75</b></td>
+                <td>–</td>
               </tr>
               <tr>
                 <td><b>Rot. Err. (°)</b></td>
@@ -584,6 +633,7 @@
                 <td><b>1.36</b></td>
                 <td>13.81</td>
                 <td><b>2.77</b></td>
+                <td>–</td>
               </tr>
             </tbody>
           </table>
@@ -797,7 +847,15 @@
         <h2 class="title is-3"> Simulation Results - DEDO Tasks</h2>
       </div>
     </div>
-
+    <div class="content has-text-justified">
+      <p>
+        Since our point cloud based formulation for goal prediction does not assume object rigidity, our method can be
+        naturally applied to deformable objects without requiring any architecture modifications. We validate 
+        this capability on a cloth hanging task from Dynamic Environments with Deformable Objects (DEDO), where we also achieve
+        superior performance in generalization to object geometry and scene configuration, multi-modal coverage, and placement precision
+        compare to baseline method designed for deformable object placement tasks.
+      </p>
+    </div>
     <!-- Generalizaion -->
     <div class="columns is-centered">
       <div class="column is-full-width">
@@ -807,26 +865,7 @@
 
           <!-- Repeat this block for each task -->
           <div class="mb-4">
-            <h4 class="title is-4" style="font-weight: normal;">HangProcCloth-SingleHole</h4>
-            <div class="columns is-mobile is-multiline is-variable is-2">
-              <div class="column is-one-fourth">
-                <img src="./static/videos/dedo/hangproccloth-sh/generalization/3_final.gif" style="width: 100%;">
-              </div>
-              <div class="column is-one-fourth">
-                <img src="./static/videos/dedo/hangproccloth-sh/generalization/4_final.gif" style="width: 100%;">
-              </div>
-              <div class="column is-one-fourth">
-                <img src="./static/videos/dedo/hangproccloth-sh/generalization/6_final.gif" style="width: 100%;">
-              </div>
-              <div class="column is-one-fourth">
-                <img src="./static/videos/dedo/hangproccloth-sh/generalization/33_final.gif" style="width: 100%;">
-              </div>
-            </div>
-          </div>
-
-          <!-- Repeat this block for each task -->
-          <div class="mb-4">
-            <h4 class="title is-4" style="font-weight: normal;">HangProcCloth-DoubleHole</h4>
+            <h4 class="title is-4" style="font-weight: normal;">HangProcCloth</h4>
             <div class="columns is-mobile is-multiline is-variable is-2">
               <div class="column is-one-fourth">
                 <img src="./static/videos/dedo/hangproccloth-dh/generalization/4_final.gif" style="width: 100%;">
@@ -857,26 +896,7 @@
 
           <!-- Repeat this block for each task -->
           <div class="mb-4">
-            <h4 class="title is-4" style="font-weight: normal;">HangProcCloth-SingleHole</h4>
-            <div class="columns is-mobile is-multiline is-variable is-2">
-              <div class="column is-one-fourth">
-                <img src="./static/videos/dedo/hangproccloth-sh/multimodality/multimodality_animation_sh_0.gif" style="width: 100%;">
-              </div>
-              <div class="column is-one-fourth">
-                <img src="./static/videos/dedo/hangproccloth-sh/multimodality/multimodality_animation_sh_3.gif" style="width: 100%;">
-              </div>
-              <div class="column is-one-fourth">
-                <img src="./static/videos/dedo/hangproccloth-sh/multimodality/multimodality_animation_sh_6.gif" style="width: 100%;">
-              </div>
-              <div class="column is-one-fourth">
-                <img src="./static/videos/dedo/hangproccloth-sh/multimodality/multimodality_animation_sh_33.gif" style="width: 100%;">
-              </div>
-            </div>
-          </div>
-  
-          <!-- Repeat this block for each task -->
-          <div class="mb-4">
-            <h4 class="title is-4" style="font-weight: normal;">HangProcCloth-DoubleHole</h4>
+            <h4 class="title is-4" style="font-weight: normal;">HangProcCloth</h4>
             <div class="columns is-mobile is-multiline is-variable is-2">
               <div class="column is-one-fourth">
                 <img src="./static/videos/dedo/hangproccloth-dh/multimodality/multimodality_animation_0.gif" style="width: 100%;">
