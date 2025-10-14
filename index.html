@@ -370,10 +370,11 @@
             Given the inputs of the object point cloud (<span style="display:inline-block; width:12px; height:12px; background-color: rgb(50, 119, 239); border-radius:50%; vertical-align: middle;"></span>)
             and the scene point cloud (<span style="display:inline-block; width:12px; height:12px; background-color: orange; border-radius:50%; vertical-align: middle;"></span>), our Global Placement Initialization module learns
             a feedforward network that outputs a spatially-grounded Dense Gaussian Mixture Model (GMM). 
-            For each scene point, the network predicts both a mixing weight (<span style="display:inline-block; width:12px; height:12px; background: linear-gradient(to right, #90ee90, #006400); border-radius:50%; vertical-align: middle;"></span>)
-            and a residual vector (<span style="display:inline-block; width:20px; height:3px; background-color: rgb(6, 224, 6); vertical-align: middle;"></span>),
-            defining the center (<span style="margin-right:20px;"><span style="display:inline-block; width:12px; height:12px; background-color: rgb(2, 149, 2); vertical-align: middle;"></span>)
-            of a Gaussian distribution anchored at that scene point. At inference time, we sample from this mixture to obtain a candidate placement location, similar in spirit to standard GMMs but tailored to the structure of each placement scene.
+            For each scene point, the network predicts both a mixing weight and a residual vector, defining the center of a Gaussian distribution anchored at that scene point. At inference time, we sample from this mixture to obtain 
+            a candidate placement location, similar in spirit to standard GMMs but tailored to the structure of each placement scene. In the following figures, we visualize the high-probability (top 90%)
+            residual vectors (<span style="display:inline-block; width:20px; height:3px; background-color: rgb(6, 224, 6); vertical-align: middle;"></span>) and
+            the corresponding placement proposals (<span style="margin-right:20px;"><span style="display:inline-block; width:12px; height:12px; background-color: rgb(2, 149, 2); vertical-align: middle;"></span>)
+            that will be most likely sampled given the scene and object point clouds.
           </p>
         </div>
 
