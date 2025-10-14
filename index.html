@@ -514,9 +514,7 @@
         <h3 class="title is-4">Local Configuration Refinement - Disentangled Point Diffusion</h3>
         <div class="content has-text-justified">
           <p>
-            Given the inputs of the object point cloud (<span style="display:inline-block; width:12px; height:12px; background-color: rgb(50, 119, 239); border-radius:50%; vertical-align: middle;"></span>),
-            the scene point cloud (<span style="display:inline-block; width:12px; height:12px; background-color: orange; border-radius:50%; vertical-align: middle;"></span>), 
-            and additionally the sampled placement proposal (<span style="margin-right:20px;"><span style="display:inline-block; width:12px; height:12px; background-color: rgb(2, 149, 2); vertical-align: middle;"></span>) from the predicted Gaussian Mixture model,
+            Given the inputs of the object point cloud, the scene point cloud, and additionally the local placement frame proposed by sampling from the predicted Gaussian Mixture model,
             our Local Configuration Refinement module outputs the precise object placement via a novel disentangled point diffusion process that estimates two things in the initialized local frame simultaneously: (i) exactly where the object will be placed, i.e. translation, and (ii) the
             configuration of the object in the placement pose, i.e. rotation for a rigid object, or shape deformation for a deformable objec. 
             Specifically, we separately diffuse the object geometry (<span style="display:inline-block; width:12px; height:12px; background-color: red; border-radius:50%; vertical-align: middle;"></span> in <b>Shape Diffusion</b>)
